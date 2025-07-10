@@ -1,7 +1,6 @@
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
-#include <iomanip>
 using namespace std;
 
 const int NEW_DATA_RANGE = 30;
@@ -22,39 +21,7 @@ void readNewData(ifstream & fin, int isStaff[NEW_DATA_RANGE], string names[NEW_D
 }
 
 // PART E
-int nextValidParking(int isStaff[MAX_PARKING], int status)
-{
-	for(int i = 0; i < MAX_PARKING; i++)
-	{
-		if(isStaff[i] == -1)
-		{
-			
-			if(i < 25)
-			{
-				if(status == 1)
-					return i;
-			}
-			else
-				return i;
-				
-		}
-	}
-	return -1;
-}
-
-// PART H
-void output(ofstream & fout, int isStaff[NEW_DATA_RANGE], string names[NEW_DATA_RANGE])
-{
-	for(int i = 0; i < MAX_PARKING; i++)
-	{
-		fout << i + 101;
-		
-		if(isStaff[i] == -1)
-			fout << "   Empty";
-		else
-			fout << setw(25) << names[i] << setw(5) << isStaff[i] << endl;
-	}
-}
+int nextValidParking(int isStaff[MAX_PARKING], int status);
 
 int main()
 {
@@ -76,4 +43,17 @@ int main()
 	
 	
 	
+}
+
+//PART B
+void  populateParking(ifstream & fin, string names[MAX_PARKING], int isStaff[NEW_DATA_RANGE] )
+{
+	
+	string currName="";
+	int personType, spotNum = -1;
+	
+	while(fin>>personType>>currName>>spotNum)
+	{
+		
+	}
 }
