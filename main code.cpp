@@ -1,3 +1,6 @@
+//PARTNER A - BRADY FENG
+//PARTNER B - IVAN CHEN
+
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
@@ -5,6 +8,23 @@ using namespace std;
 
 const int NEW_DATA_RANGE = 30;
 const int MAX_PARKING = 50;
+
+//PART B
+void  populateParking(ifstream & fin, string names[MAX_PARKING], int isStaff[MAX_PARKING] )
+{
+	
+	string currName="";
+	int personType, spotNum = -1;
+	
+	while(fin>>personType>>currName>>spotNum)
+	{
+		i=spotNum-101;
+		
+		isStaff[i]=personType;
+		names[i]=currName;
+		
+	}
+}
 
 // PART C
 void readNewData(ifstream & fin, int isStaff[NEW_DATA_RANGE], string names[NEW_DATA_RANGE])
@@ -17,6 +37,19 @@ void readNewData(ifstream & fin, int isStaff[NEW_DATA_RANGE], string names[NEW_D
 		isStaff[i] = staff;
 		names[i] = name;
 		i++;
+	}
+}
+
+//PART D
+void clearSpot(names[MAX_PARKING],isStaff[MAX_PARKING], string deleteName, int status)
+{
+	for(int i = 0; i<MAX_PARKING; i++)
+	{
+		if(names[i]==deleteName)
+		{
+			names[i]=" ";
+			isStaff[i]=-1;
+		}
 	}
 }
 
@@ -41,6 +74,32 @@ int nextValidParking(int isStaff[MAX_PARKING], int status)
 	return -1;
 }
 
+//PART F
+bool addName(names[MAX_PARKING],isStaff[MAX_PARKING],string addName, int status)
+{
+	bool addedSuccessfully = true;
+	bool foundSpot = false;
+	
+	if(nextValidParking(isStaff[MAX_PARKING], status)==-1)
+	{
+		 addedSuccessfully = false;
+		 return addedSuccessfully;
+	}
+	
+	for(int i = 0; i< MAX_PARKING||foundSpot==true; i++)
+	{
+		if(isStaff[i]==-1)
+		{
+		isStaff[i]=	status;
+		names[i]=addName;
+		found=true;
+		}
+	}
+	
+	
+	return addedSuccessfully;
+}
+
 // PART H
 void output(ofstream & fout, int isStaff[NEW_DATA_RANGE], string names[NEW_DATA_RANGE])
 {
@@ -58,9 +117,9 @@ void output(ofstream & fout, int isStaff[NEW_DATA_RANGE], string names[NEW_DATA_
 
 int main()
 {
-	ifstream parking_current(parking_current.txt);
-	ifstream parking_remove(parking_remove.txt);
-	ifstream parking_add(parking_add.txt);
+	ifstream parking_current("parking_current.txt");
+	ifstream parking_remove("parking_remove.txt");
+	ifstream parking_add("parking_add.txt");
 	
 	if(!parking_current || !parking_remove || !parking_add)
 	{
@@ -74,50 +133,25 @@ int main()
 		
 	string names[MAX_PARKING] = {};
 	
+	//PART I
+	ofstream outputA("outputA.txt");
+	//state a)
+	populateParking(parking_current, names[MAX_PARKING], facultyOrStudent[MAX_PARKING]);
+	output(outputA,facultyOrStudent[MAX_PARKING],names[MAX_PARKING]);
+//	cout<<"Initial Parking Lot:"<<endl;
+	
+	
+	//state b)
+//	cout<<"Removed and Reassigned Parking Lot:"<<endl;
+	
+	//state c)
+//	cout<<"Final Parking Lot:"<<endl;
 	
 	
 }
 
-//PART B
-void  populateParking(ifstream & fin, string names[MAX_PARKING], int isStaff[MAX_PARKING] )
-{
-	
-	string currName="";
-	int personType, spotNum = -1;
-	
-	while(fin>>personType>>currName>>spotNum)
-	{
-		i=spotNum-101;
-		
-		isStaff[i]=personType;
-		names[i]=currName;
-		
-	}
-}
 
-//PART D
-void clearSpot(names[MAX_PARKING],isStaff[MAX_PARKING], string deleteName, int status)
-{
-	for(int i = 0; i<MAX_PARKING; i++)
-	{
-		if(names[i]==deleteName)
-		{
-			names[i]=" ";
-			isStaff[i]=-1;
-		}
-	}
-}
 
-//PART F
-bool addName(names[MAX_PARKING],isStaff[MAX_PARKING],string addName, int status)
-{
-	bool addedSuccessfully = true;
-	
-	if(nextValidParking(isStaff[MAX_PARKING], status)==-1)
-	{
-		 addedSuccessfully = false;
-		 return addedSuccessfully;
-	}
-	
-	return addedSuccessfully;
-}
+
+
+
