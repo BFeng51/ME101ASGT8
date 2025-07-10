@@ -79,7 +79,7 @@ int main()
 }
 
 //PART B
-void  populateParking(ifstream & fin, string names[MAX_PARKING], int isStaff[NEW_DATA_RANGE] )
+void  populateParking(ifstream & fin, string names[MAX_PARKING], int isStaff[MAX_PARKING] )
 {
 	
 	string currName="";
@@ -87,6 +87,37 @@ void  populateParking(ifstream & fin, string names[MAX_PARKING], int isStaff[NEW
 	
 	while(fin>>personType>>currName>>spotNum)
 	{
+		i=spotNum-101;
+		
+		isStaff[i]=personType;
+		names[i]=currName;
 		
 	}
+}
+
+//PART D
+void clearSpot(names[MAX_PARKING],isStaff[MAX_PARKING], string deleteName, int status)
+{
+	for(int i = 0; i<MAX_PARKING; i++)
+	{
+		if(names[i]==deleteName)
+		{
+			names[i]=" ";
+			isStaff[i]=-1;
+		}
+	}
+}
+
+//PART F
+bool addName(names[MAX_PARKING],isStaff[MAX_PARKING],string addName, int status)
+{
+	bool addedSuccessfully = true;
+	
+	if(nextValidParking(isStaff[MAX_PARKING], status)==-1)
+	{
+		 addedSuccessfully = false;
+		 return addedSuccessfully;
+	}
+	
+	return addedSuccessfully;
 }
