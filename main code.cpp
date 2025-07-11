@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
+
 using namespace std;
 
 const int NEW_DATA_RANGE = 30;
@@ -95,7 +96,7 @@ bool addName(string names[MAX_PARKING], int isStaff[MAX_PARKING],string addName,
 }
 
 // PART G
-void rearrange()
+
 
 
 // PART H
@@ -132,7 +133,7 @@ int main()
 	string names[MAX_PARKING] = {};
 	
 	//PART I
-	ofstream outputA("outputA.txt");
+	ofstream outputA("output.txt");
 	//state a)
 	populateParking(parking_current, names, facultyOrStudent);
 	cout<<"Initial Parking Lot:"<<endl;
@@ -140,7 +141,27 @@ int main()
 	
 	
 	//state b)
-//	cout<<"Removed and Reassigned Parking Lot:"<<endl;
+	int addingIsStaff[NEW_DATA_RANGE]={};
+	string addingNames[NEW_DATA_RANGE]={};
+	
+	int removingIsStaff[NEW_DATA_RANGE]={};
+	string removingNames[NEW_DATA_RANGE]={};
+	
+	readNewData(parking_remove, removingIsStaff, removingNames);
+	readNewData(parking_add, addingIsStaff, addingNames);
+	
+	for(int i = 0; i<NEW_DATA_RANGE; i++)
+	{
+		clearSpot(names, facultyOrStudent, removingNames[i], removingIsStaff[i]);
+	}
+	
+		for(int i = 0; i<NEW_DATA_RANGE; i++)
+	{
+		addName(names, facultyOrStudent, addingNames[i], addingIsStaff[i]);
+	}
+	
+	cout<<"Removed and Reassigned Parking Lot:"<<endl;
+	output(outputA, facultyOrStudent, names);
 	
 	//state c)
 //	cout<<"Final Parking Lot:"<<endl;
