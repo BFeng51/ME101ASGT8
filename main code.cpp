@@ -1,6 +1,6 @@
 //PARTNER A - BRADY FENG
 //PARTNER B - IVAN CHEN
-
+#include <iomanip>
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
@@ -18,7 +18,7 @@ void  populateParking(ifstream & fin, string names[MAX_PARKING], int isStaff[MAX
 	
 	while(fin>>personType>>currName>>spotNum)
 	{
-		i=spotNum-101;
+		int i=spotNum-101;
 		
 		isStaff[i]=personType;
 		names[i]=currName;
@@ -41,7 +41,7 @@ void readNewData(ifstream & fin, int isStaff[NEW_DATA_RANGE], string names[NEW_D
 }
 
 //PART D
-void clearSpot(names[MAX_PARKING],isStaff[MAX_PARKING], string deleteName, int status)
+void clearSpot(string names[MAX_PARKING],int isStaff[MAX_PARKING], string deleteName, int status)
 {
 	for(int i = 0; i<MAX_PARKING; i++)
 	{
@@ -75,42 +75,40 @@ int nextValidParking(int isStaff[MAX_PARKING], int status)
 }
 
 //PART F
-bool addName(names[MAX_PARKING],isStaff[MAX_PARKING],string addName, int status)
+bool addName(string names[MAX_PARKING], int isStaff[MAX_PARKING],string addName, int status)
 {
-	bool addedSuccessfully = true;
-	bool foundSpot = false;
+	int nextSpot = nextValidParking(isStaff, status);
 	
-	if(nextValidParking(isStaff[MAX_PARKING], status)==-1)
+	if(nextSpot == -1)
 	{
-		 addedSuccessfully = false;
-		 return addedSuccessfully;
+		 return false;
 	}
 	
-	for(int i = 0; i< MAX_PARKING||foundSpot==true; i++)
+	else
 	{
-		if(isStaff[i]==-1)
-		{
-		isStaff[i]=	status;
-		names[i]=addName;
-		found=true;
-		}
+		isStaff[nextSpot]=	status;
+		names[nextSpot]=addName;
 	}
 	
 	
-	return addedSuccessfully;
+	return true;
 }
+
+// PART G
+void rearrange()
+
 
 // PART H
 void output(ofstream & fout, int isStaff[NEW_DATA_RANGE], string names[NEW_DATA_RANGE])
 {
 	for(int i = 0; i < MAX_PARKING; i++)
 	{
-		fout << i + 101;
+		cout << i + 101;
 		
 		if(isStaff[i] == -1)
-			fout << "   Empty";
+			cout << setw(25) << "Empty" << endl;
 		else
-			fout << setw(25) << names[i] << setw(5) << isStaff[i] << endl;
+			cout << setw(25) << names[i] << setw(5) << isStaff[i] << endl;
 	}
 }
 
@@ -136,9 +134,9 @@ int main()
 	//PART I
 	ofstream outputA("outputA.txt");
 	//state a)
-	populateParking(parking_current, names[MAX_PARKING], facultyOrStudent[MAX_PARKING]);
-	output(outputA,facultyOrStudent[MAX_PARKING],names[MAX_PARKING]);
-//	cout<<"Initial Parking Lot:"<<endl;
+	populateParking(parking_current, names, facultyOrStudent);
+	cout<<"Initial Parking Lot:"<<endl;
+	output(outputA, facultyOrStudent, names);
 	
 	
 	//state b)
