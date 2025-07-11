@@ -61,12 +61,10 @@ int nextValidParking(int isStaff[MAX_PARKING], int status)
 		if(isStaff[i] == -1)
 		{
 			
-			if(i < 25)
-			{
-				if(status == 1)
-					return i;
-			}
-			else
+			if(i < 25 && status == 1)
+				return i;
+				
+			else if(i >= 25)
 				return i;
 				
 		}
@@ -95,7 +93,14 @@ bool addName(string names[MAX_PARKING], int isStaff[MAX_PARKING],string addName,
 }
 
 // PART G
-void rearrange()
+void rearrange(int isStaff[NEW_DATA_RANGE], string names[NEW_DATA_RANGE])
+{
+	for(int i = 25; i < 50; i++)
+	{
+		if(isStaff[i] == 1)
+			addName(names, isStaff, names[i], isStaff[i]);
+	}
+}
 
 
 // PART H
@@ -135,8 +140,29 @@ int main()
 	ofstream outputA("outputA.txt");
 	//state a)
 	populateParking(parking_current, names, facultyOrStudent);
-	cout<<"Initial Parking Lot:"<<endl;
+	
+	int facultyOrStudent_remove[NEW_DATA_RANGE] = {};
+	string names_remove[NEW_DATA_RANGE] = {};
+	readNewData(parking_remove, facultyOrStudent_remove, names_remove);
+	//output(outputA, facultyOrStudent_remove, names_remove);
+	
+	int facultyOrStudent_add[NEW_DATA_RANGE] = {};
+	string names_add[NEW_DATA_RANGE] = {};
+	readNewData(parking_add, facultyOrStudent_add, names_add);
+	//output(outputA, facultyOrStudent_add, names_add);
+	
+	//clearSpot(names, facultyOrStudent, "Tesla_Nick", 1);
+	
+	
+	cout<<"Test Parking Lot:"<<endl;
 	output(outputA, facultyOrStudent, names);
+	
+	cout << endl << endl << endl;
+	addName(names, facultyOrStudent, "Brady_Feng", 0);
+	output(outputA, facultyOrStudent, names);
+	
+	//cout << nextValidParking(facultyOrStudent, 1)+101 << endl;
+	//cout << nextValidParking(facultyOrStudent, 0)+101 << endl;
 	
 	
 	//state b)
