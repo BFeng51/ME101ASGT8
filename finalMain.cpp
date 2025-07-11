@@ -1,5 +1,3 @@
-//PARTNER A - BRADY FENG
-//PARTNER B - IVAN CHEN
 #include <iomanip>
 #include <iostream>
 #include <fstream>
@@ -98,7 +96,12 @@ void rearrange(int isStaff[NEW_DATA_RANGE], string names[NEW_DATA_RANGE])
 	for(int i = 25; i < 50; i++)
 	{
 		if(isStaff[i] == 1)
-			addName(names, isStaff, names[i], isStaff[i]);
+		{
+			string name = names[i];
+			int staff = isStaff[i];
+			clearSpot(names, isStaff, names[i], isStaff[i]);
+			addName(names, isStaff, name, staff);
+		}
 	}
 }
 
@@ -116,7 +119,6 @@ void output(ofstream & fout, int isStaff[NEW_DATA_RANGE], string names[NEW_DATA_
 			cout << setw(25) << names[i] << setw(5) << isStaff[i] << endl;
 	}
 }
-
 
 int main()
 {
@@ -138,65 +140,47 @@ int main()
 	
 	//PART I
 	ofstream outputA("outputA.txt");
+
 	//state a)
 	populateParking(parking_current, names, facultyOrStudent);
+	cout<<"Initial Parking Lot:"<<endl;
 	output(outputA, facultyOrStudent, names);
-	
-	int facultyOrStudent_remove[NEW_DATA_RANGE] = {};
-	string names_remove[NEW_DATA_RANGE] = {};
-	readNewData(parking_remove, facultyOrStudent_remove, names_remove);
-	//output(outputA, facultyOrStudent_remove, names_remove);
-	
-	int facultyOrStudent_add[NEW_DATA_RANGE] = {};
-	string names_add[NEW_DATA_RANGE] = {};
-	readNewData(parking_add, facultyOrStudent_add, names_add);
-	//output(outputA, facultyOrStudent_add, names_add);
-	
-	//clearSpot(names, facultyOrStudent, "Tesla_Nick", 1);
-	
-	
-	cout<<"Test Parking Lot:"<<endl;
-	output(outputA, facultyOrStudent, names);
-	
-	cout << endl << endl << endl;
-	addName(names, facultyOrStudent, "Brady_Feng", 0);
-	output(outputA, facultyOrStudent, names);
-	
-	//cout << nextValidParking(facultyOrStudent, 1)+101 << endl;
-	//cout << nextValidParking(facultyOrStudent, 0)+101 << endl;
+
 	
 	
 	//state b)
-	
+
+	int addingIsStaff[NEW_DATA_RANGE]={};
+	for(int i = 0; i < NEW_DATA_RANGE; i++)
+		addingIsStaff[i] = -1;
+	string addingNames[NEW_DATA_RANGE]={};
 	
 	int removingIsStaff[NEW_DATA_RANGE]={};
 	string removingNames[NEW_DATA_RANGE]={};
 	
 	readNewData(parking_remove, removingIsStaff, removingNames);
-
+	readNewData(parking_add, addingIsStaff, addingNames);
 	
 	for(int i = 0; i<NEW_DATA_RANGE; i++)
 	{
 		clearSpot(names, facultyOrStudent, removingNames[i], removingIsStaff[i]);
 	}
-	
-
-		rearrange(facultyOrStudent, names );
+	rearrange(facultyOrStudent,names);
 
 	
 	cout<<"Removed and Reassigned Parking Lot:"<<endl;
 	output(outputA, facultyOrStudent, names);
-
-	//state c)
-//	cout<<"Final Parking Lot:"<<endl;
-	int addingIsStaff[NEW_DATA_RANGE]={};
-	string addingNames[NEW_DATA_RANGE]={};
 	
-	readNewData(parking_add, addingIsStaff, addingNames);
+	//state c)
+	cout<<"Final Parking Lot:"<<endl;
+		for(int i = 0; i<NEW_DATA_RANGE; i++)
+	{
+		if(addName(names, facultyOrStudent, addingNames[i], addingIsStaff[i])==false && addingIsStaff[i] != -1)
+		{
+			cout<<"Unable to find spot for "<<" "<<addingNames[i]<<endl;
+		}
+		
+	}
+	output(outputA, facultyOrStudent, names);
+
 }
-
-
-
-
-
-
