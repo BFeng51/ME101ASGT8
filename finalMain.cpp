@@ -187,5 +187,9 @@ int main()
 		
 	}
 	output(outputA, facultyOrStudent, names);
-
+	
+	outputA.close();
+	parking_current.close();
+	parking_remove.close();
+	parking_add.close();
 }
