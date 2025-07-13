@@ -1,3 +1,7 @@
+// Assignment 8
+// Brady Feng (Partner A)
+// Ivan Chen (Partner B)
+
 #include <iomanip>
 #include <iostream>
 #include <fstream>
