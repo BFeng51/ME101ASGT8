@@ -181,7 +181,7 @@ int main()
 	}
 	
 
-		rearrange(facultyOrStudent, names );
+	rearrange(facultyOrStudent, names );
 
 	
 	cout<<"Removed and Reassigned Parking Lot:"<<endl;

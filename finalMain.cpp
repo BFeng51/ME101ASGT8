@@ -111,13 +111,14 @@ void output(ofstream & fout, int isStaff[NEW_DATA_RANGE], string names[NEW_DATA_
 {
 	for(int i = 0; i < MAX_PARKING; i++)
 	{
-		cout << i + 101;
+		fout << i + 101;
 		
 		if(isStaff[i] == -1)
-			cout << setw(25) << "Empty" << endl;
+			fout << setw(25) << "Empty" << endl;
 		else
-			cout << setw(25) << names[i] << setw(5) << isStaff[i] << endl;
+			fout << setw(25) << names[i] << setw(5) << isStaff[i] << endl;
 	}
+	fout << endl;
 }
 
 int main()
@@ -143,7 +144,7 @@ int main()
 
 	//state a)
 	populateParking(parking_current, names, facultyOrStudent);
-	cout<<"Initial Parking Lot:"<<endl;
+	outputA<<"Initial Parking Lot:"<<endl;
 	output(outputA, facultyOrStudent, names);
 
 	
@@ -168,16 +169,16 @@ int main()
 	rearrange(facultyOrStudent,names);
 
 	
-	cout<<"Removed and Reassigned Parking Lot:"<<endl;
+	outputA<<"Removed and Reassigned Parking Lot:"<<endl;
 	output(outputA, facultyOrStudent, names);
 	
 	//state c)
-	cout<<"Final Parking Lot:"<<endl;
-		for(int i = 0; i<NEW_DATA_RANGE; i++)
+	outputA<<"Final Parking Lot:"<<endl;
+	for(int i = 0; i<NEW_DATA_RANGE; i++)
 	{
 		if(addName(names, facultyOrStudent, addingNames[i], addingIsStaff[i])==false && addingIsStaff[i] != -1)
 		{
-			cout<<"Unable to find spot for "<<" "<<addingNames[i]<<endl;
+			outputA<<"Unable to find spot for "<<" "<<addingNames[i]<<endl;
 		}
 		
 	}

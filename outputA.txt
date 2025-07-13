@@ -1,0 +1,160 @@
+Initial Parking Lot:
+101     Hamdullahpur_Feridun    1
+102             Yerxa_Meagan    1
+103                    Empty
+104          Musselman_Kevin    1
+105                    Empty
+106                    Empty
+107                    Empty
+108            Gryguc_Andrew    1
+109           Campbell_Emily    1
+110             Lovelace_Ada    0
+111                    Empty
+112             Archimedes_A    0
+113             da_Vinci_Leo    0
+114        MacGregor_Carolyn    1
+115                    Empty
+116         McGregor_Martine    0
+117             Gorman_David    1
+118                Owen_Bill    1
+119                    Empty
+120              Nairn_David    1
+121                    Empty
+122          Katherine_Idzik    1
+123             Consell_Ryan    1
+124                McKay_Ken    1
+125       Vandekerckhove_Sam    1
+126               Tesla_Nick    0
+127                    Empty
+128                Otto_Nick    0
+129                Turing_Al    0
+130          Teertstra_Peter    1
+131                  Aho_Alf    0
+132                Bell_Alex    0
+133           Stephenson_Geo    0
+134                  Musk_El    0
+135             Hopper_Grace    0
+136                 Oh_Henry    0
+137             Milne_Andrew    1
+138                    Empty
+139              Cramer_Zack    1
+140                    Empty
+141               Edison_Tom    0
+142              Hulls_Carol    1
+143                    Empty
+144           Payton_Forrest    1
+145             Babbage_Chip    0
+146              Casale_Matt    1
+147               Goel_Vivek    1
+148              Harris_Dave    1
+149                    Empty
+150               Wells_Mary    1
+
+Removed and Reassigned Parking Lot:
+101          Teertstra_Peter    1
+102             Milne_Andrew    1
+103              Cramer_Zack    1
+104          Musselman_Kevin    1
+105              Hulls_Carol    1
+106           Payton_Forrest    1
+107               Goel_Vivek    1
+108              Harris_Dave    1
+109               Wells_Mary    1
+110             Lovelace_Ada    0
+111                    Empty
+112             Archimedes_A    0
+113             da_Vinci_Leo    0
+114                    Empty
+115                    Empty
+116                    Empty
+117             Gorman_David    1
+118                Owen_Bill    1
+119                    Empty
+120                    Empty
+121                    Empty
+122          Katherine_Idzik    1
+123             Consell_Ryan    1
+124                    Empty
+125       Vandekerckhove_Sam    1
+126               Tesla_Nick    0
+127                    Empty
+128                Otto_Nick    0
+129                Turing_Al    0
+130                    Empty
+131                  Aho_Alf    0
+132                Bell_Alex    0
+133                    Empty
+134                    Empty
+135             Hopper_Grace    0
+136                    Empty
+137                    Empty
+138                    Empty
+139                    Empty
+140                    Empty
+141                    Empty
+142                    Empty
+143                    Empty
+144                    Empty
+145             Babbage_Chip    0
+146                    Empty
+147                    Empty
+148                    Empty
+149                    Empty
+150                    Empty
+
+Final Parking Lot:
+Unable to find spot for  Imhotep_P
+Unable to find spot for  Tepe_Go
+Unable to find spot for  Armstrong_Nick
+Unable to find spot for  Pike_Robby
+101          Teertstra_Peter    1
+102             Milne_Andrew    1
+103              Cramer_Zack    1
+104          Musselman_Kevin    1
+105              Hulls_Carol    1
+106           Payton_Forrest    1
+107               Goel_Vivek    1
+108              Harris_Dave    1
+109               Wells_Mary    1
+110             Lovelace_Ada    0
+111               Lala_Divya    1
+112             Archimedes_A    0
+113             da_Vinci_Leo    0
+114         McGregor_Martine    1
+115                Zhou_Yang    1
+116         Dhaliwal_Navdeep    1
+117             Gorman_David    1
+118                Owen_Bill    1
+119            Meunier_Sarah    1
+120           Benoit_Michael    1
+121                    Empty
+122          Katherine_Idzik    1
+123             Consell_Ryan    1
+124                    Empty
+125       Vandekerckhove_Sam    1
+126               Tesla_Nick    0
+127             Payette_Jill    0
+128                Otto_Nick    0
+129                Turing_Al    0
+130              Fleming_San    0
+131                  Aho_Alf    0
+132                Bell_Alex    0
+133               Eiffel_Gus    0
+134             Wozniak_Stef    0
+135             Hopper_Grace    0
+136               Clarke_Edi    0
+137                 Lamarr_H    0
+138              Roebling_Em    0
+139              Jemison_May    0
+140             Jackson_Mary    0
+141              Johnson_Kat    0
+142              Vaughan_Dot    0
+143                 Tlaa_Sha    0
+144               Curie_Mary    0
+145             Babbage_Chip    0
+146            Stroustrup_Bj    0
+147               Imahara_Gr    0
+148              Frize_Molly    0
+149               Guppy_Sara    0
+150            Roebling_Emma    0
+
